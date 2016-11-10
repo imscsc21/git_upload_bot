@@ -1,7 +1,7 @@
 #!/bin/sh
-cd ~/Desktop
-python3 wordchain.py
 cd $1
+python3 wordchain.py
+cd $2
 git config user.name "hsh97Erica"
 git config user.email "imscs21@hanyang.ac.kr"
 time=60
@@ -10,7 +10,7 @@ time=60
 #do
 git init
 git pull origin
-cp ~/Desktop/chain.txt ./
+cp $1/chain.txt ./
 
 #echo $(date) >> a.test
 #echo "" >>a.test
