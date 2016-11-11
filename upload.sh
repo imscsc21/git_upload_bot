@@ -5,6 +5,7 @@ git config --global user.email "imscs21@hanyang.ac.kr"
 #time=$((60*60*6))
 for i in $(seq 1 999999)
 do
+echo try loop $i times
 cd $2
 git pull origin
 cd $1
