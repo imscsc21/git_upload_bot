@@ -1,3 +1,5 @@
+import os
+
 def doWordChain():
     import random
     def getNewWord(output,data):
@@ -7,8 +9,9 @@ def doWordChain():
         return next_word
     
     dictfp = open("dictionary.txt","r")
-    output = open("chain.txt","a")
-    output.close()
+    if(not os.path.exists("chain.txt")):
+        output = open("chain.txt","a")
+        output.close()
     output = open("chain.txt","r+")
     dict = dictfp.read()
     dict = dict.split("\n")
@@ -41,7 +44,7 @@ def doWordChain():
         if(prefix!="="):
             available_wordlist=[]
             for someword in dict:
-                if(len(someword)>1 and someword not in beforechain and someword[0]==prefix):
+                if(len(someword)>1 and someword[0]==prefix and someword not in beforechain):
                     available_wordlist.append(someword)
             if(len(available_wordlist)>0):      
                 next_word=available_wordlist[random.randint(0,len(available_wordlist)-1)]
